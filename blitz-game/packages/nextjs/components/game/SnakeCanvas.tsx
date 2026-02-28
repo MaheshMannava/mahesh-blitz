@@ -12,7 +12,6 @@ type SnakeCanvasProps = {
 };
 
 const CANVAS_SIZE = 600;
-const CELL_SIZE = CANVAS_SIZE / GRID_SIZE;
 
 const SNAKE_YELLOW = "#F5D800";
 const SNAKE_YELLOW_DARK = "#C9A800";
