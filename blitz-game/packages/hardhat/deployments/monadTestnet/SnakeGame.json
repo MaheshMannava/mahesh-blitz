@@ -1,0 +1,595 @@
+{
+  "address": "0x601e99770A047216843cA8dbCD10b732730A7454",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "gameId",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "player",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "enum SnakeGame.Direction",
+          "name": "direction",
+          "type": "uint8"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint32",
+          "name": "moveCount",
+          "type": "uint32"
+        }
+      ],
+      "name": "DirectionChanged",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "gameId",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "player",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "mainWallet",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint32",
+          "name": "score",
+          "type": "uint32"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint32",
+          "name": "moveCount",
+          "type": "uint32"
+        }
+      ],
+      "name": "GameEnded",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "gameId",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "player",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "mainWallet",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint64",
+          "name": "startTime",
+          "type": "uint64"
+        }
+      ],
+      "name": "GameStarted",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "MAX_LEADERBOARD",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "activeGame",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "gameId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "enum SnakeGame.Direction",
+          "name": "direction",
+          "type": "uint8"
+        }
+      ],
+      "name": "changeDirection",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "gameId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint32",
+          "name": "score",
+          "type": "uint32"
+        }
+      ],
+      "name": "endGame",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "games",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "player",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "mainWallet",
+          "type": "address"
+        },
+        {
+          "internalType": "uint64",
+          "name": "startTime",
+          "type": "uint64"
+        },
+        {
+          "internalType": "uint64",
+          "name": "endTime",
+          "type": "uint64"
+        },
+        {
+          "internalType": "uint32",
+          "name": "score",
+          "type": "uint32"
+        },
+        {
+          "internalType": "uint32",
+          "name": "moveCount",
+          "type": "uint32"
+        },
+        {
+          "internalType": "bool",
+          "name": "isActive",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "gameId",
+          "type": "uint256"
+        }
+      ],
+      "name": "getGame",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "player",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "mainWallet",
+              "type": "address"
+            },
+            {
+              "internalType": "uint64",
+              "name": "startTime",
+              "type": "uint64"
+            },
+            {
+              "internalType": "uint64",
+              "name": "endTime",
+              "type": "uint64"
+            },
+            {
+              "internalType": "uint32",
+              "name": "score",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint32",
+              "name": "moveCount",
+              "type": "uint32"
+            },
+            {
+              "internalType": "bool",
+              "name": "isActive",
+              "type": "bool"
+            }
+          ],
+          "internalType": "struct SnakeGame.GameSession",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getLeaderboard",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "player",
+              "type": "address"
+            },
+            {
+              "internalType": "uint32",
+              "name": "score",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint32",
+              "name": "moveCount",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint256",
+              "name": "gameId",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct SnakeGame.LeaderboardEntry[]",
+          "name": "",
+          "type": "tuple[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "leaderboard",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "player",
+          "type": "address"
+        },
+        {
+          "internalType": "uint32",
+          "name": "score",
+          "type": "uint32"
+        },
+        {
+          "internalType": "uint32",
+          "name": "moveCount",
+          "type": "uint32"
+        },
+        {
+          "internalType": "uint256",
+          "name": "gameId",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "nextGameId",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "mainWallet",
+          "type": "address"
+        }
+      ],
+      "name": "startGame",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "gameId",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0x5e383df0e8cb4ef93b34c3c1e9c5e2bc7c54576da1f0a67a533bfeba3826ee50",
+  "receipt": {
+    "to": null,
+    "from": "0x86Ed60C8814Bd74bAc58cebBd67f4D7f13eeEde1",
+    "contractAddress": "0x601e99770A047216843cA8dbCD10b732730A7454",
+    "transactionIndex": 3,
+    "gasUsed": "978232",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0x1113535390af1c67b4557dca3b799702edc6b80d013e58afdac1931f033f0dd7",
+    "transactionHash": "0x5e383df0e8cb4ef93b34c3c1e9c5e2bc7c54576da1f0a67a533bfeba3826ee50",
+    "logs": [],
+    "blockNumber": 15715620,
+    "cumulativeGasUsed": "1177982",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [],
+  "numDeployments": 2,
+  "solcInputHash": "95e17229ec5f633e65bcddd55b05aca8",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.30+commit.73712a01\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"gameId\",\"type\":\"uint256\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"player\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"enum SnakeGame.Direction\",\"name\":\"direction\",\"type\":\"uint8\"},{\"indexed\":false,\"internalType\":\"uint32\",\"name\":\"moveCount\",\"type\":\"uint32\"}],\"name\":\"DirectionChanged\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"gameId\",\"type\":\"uint256\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"player\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"mainWallet\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint32\",\"name\":\"score\",\"type\":\"uint32\"},{\"indexed\":false,\"internalType\":\"uint32\",\"name\":\"moveCount\",\"type\":\"uint32\"}],\"name\":\"GameEnded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"gameId\",\"type\":\"uint256\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"player\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"mainWallet\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint64\",\"name\":\"startTime\",\"type\":\"uint64\"}],\"name\":\"GameStarted\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"MAX_LEADERBOARD\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"activeGame\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"gameId\",\"type\":\"uint256\"},{\"internalType\":\"enum SnakeGame.Direction\",\"name\":\"direction\",\"type\":\"uint8\"}],\"name\":\"changeDirection\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"gameId\",\"type\":\"uint256\"},{\"internalType\":\"uint32\",\"name\":\"score\",\"type\":\"uint32\"}],\"name\":\"endGame\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"games\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"player\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"mainWallet\",\"type\":\"address\"},{\"internalType\":\"uint64\",\"name\":\"startTime\",\"type\":\"uint64\"},{\"internalType\":\"uint64\",\"name\":\"endTime\",\"type\":\"uint64\"},{\"internalType\":\"uint32\",\"name\":\"score\",\"type\":\"uint32\"},{\"internalType\":\"uint32\",\"name\":\"moveCount\",\"type\":\"uint32\"},{\"internalType\":\"bool\",\"name\":\"isActive\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"gameId\",\"type\":\"uint256\"}],\"name\":\"getGame\",\"outputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"player\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"mainWallet\",\"type\":\"address\"},{\"internalType\":\"uint64\",\"name\":\"startTime\",\"type\":\"uint64\"},{\"internalType\":\"uint64\",\"name\":\"endTime\",\"type\":\"uint64\"},{\"internalType\":\"uint32\",\"name\":\"score\",\"type\":\"uint32\"},{\"internalType\":\"uint32\",\"name\":\"moveCount\",\"type\":\"uint32\"},{\"internalType\":\"bool\",\"name\":\"isActive\",\"type\":\"bool\"}],\"internalType\":\"struct SnakeGame.GameSession\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getLeaderboard\",\"outputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"player\",\"type\":\"address\"},{\"internalType\":\"uint32\",\"name\":\"score\",\"type\":\"uint32\"},{\"internalType\":\"uint32\",\"name\":\"moveCount\",\"type\":\"uint32\"},{\"internalType\":\"uint256\",\"name\":\"gameId\",\"type\":\"uint256\"}],\"internalType\":\"struct SnakeGame.LeaderboardEntry[]\",\"name\":\"\",\"type\":\"tuple[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"leaderboard\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"player\",\"type\":\"address\"},{\"internalType\":\"uint32\",\"name\":\"score\",\"type\":\"uint32\"},{\"internalType\":\"uint32\",\"name\":\"moveCount\",\"type\":\"uint32\"},{\"internalType\":\"uint256\",\"name\":\"gameId\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"nextGameId\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"mainWallet\",\"type\":\"address\"}],\"name\":\"startGame\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"gameId\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/SnakeGame.sol\":\"SnakeGame\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"contracts/SnakeGame.sol\":{\"content\":\"//SPDX-License-Identifier: MIT\\npragma solidity >=0.8.0 <0.9.0;\\n\\ncontract SnakeGame {\\n    enum Direction { UP, RIGHT, DOWN, LEFT }\\n\\n    struct GameSession {\\n        address player;      // session wallet (msg.sender)\\n        address mainWallet;  // main wallet passed by client\\n        uint64 startTime;\\n        uint64 endTime;\\n        uint32 score;\\n        uint32 moveCount;\\n        bool isActive;\\n    }\\n\\n    struct LeaderboardEntry {\\n        address player;      // main wallet address shown on leaderboard\\n        uint32 score;\\n        uint32 moveCount;\\n        uint256 gameId;\\n    }\\n\\n    uint256 public nextGameId;\\n    mapping(uint256 => GameSession) public games;\\n    mapping(address => uint256) public activeGame;\\n\\n    uint256 public constant MAX_LEADERBOARD = 10;\\n    LeaderboardEntry[] public leaderboard;\\n\\n    event GameStarted(uint256 indexed gameId, address indexed player, address indexed mainWallet, uint64 startTime);\\n    event DirectionChanged(uint256 indexed gameId, address indexed player, Direction direction, uint32 moveCount);\\n    event GameEnded(uint256 indexed gameId, address indexed player, address indexed mainWallet, uint32 score, uint32 moveCount);\\n\\n    function startGame(address mainWallet) external returns (uint256 gameId) {\\n        if (activeGame[msg.sender] != 0) {\\n            GameSession storage prev = games[activeGame[msg.sender]];\\n            if (prev.isActive) {\\n                prev.isActive = false;\\n                prev.endTime = uint64(block.timestamp);\\n            }\\n        }\\n\\n        gameId = ++nextGameId;\\n        games[gameId] = GameSession({\\n            player: msg.sender,\\n            mainWallet: mainWallet,\\n            startTime: uint64(block.timestamp),\\n            endTime: 0,\\n            score: 0,\\n            moveCount: 0,\\n            isActive: true\\n        });\\n        activeGame[msg.sender] = gameId;\\n\\n        emit GameStarted(gameId, msg.sender, mainWallet, uint64(block.timestamp));\\n    }\\n\\n    function changeDirection(uint256 gameId, Direction direction) external {\\n        GameSession storage game = games[gameId];\\n        require(game.isActive, \\\"Game not active\\\");\\n        require(game.player == msg.sender, \\\"Not your game\\\");\\n\\n        game.moveCount++;\\n        emit DirectionChanged(gameId, msg.sender, direction, game.moveCount);\\n    }\\n\\n    function endGame(uint256 gameId, uint32 score) external {\\n        GameSession storage game = games[gameId];\\n        require(game.isActive, \\\"Game not active\\\");\\n        require(game.player == msg.sender, \\\"Not your game\\\");\\n\\n        game.isActive = false;\\n        game.endTime = uint64(block.timestamp);\\n        game.score = score;\\n\\n        // Only update leaderboard for non-zero scores\\n        if (score > 0) {\\n            address displayAddress = game.mainWallet != address(0) ? game.mainWallet : msg.sender;\\n            _updateLeaderboard(gameId, displayAddress, score, game.moveCount);\\n            emit GameEnded(gameId, msg.sender, game.mainWallet, score, game.moveCount);\\n        }\\n    }\\n\\n    function _updateLeaderboard(uint256 gameId, address player, uint32 score, uint32 moveCount) internal {\\n        LeaderboardEntry memory entry = LeaderboardEntry({\\n            player: player,\\n            score: score,\\n            moveCount: moveCount,\\n            gameId: gameId\\n        });\\n\\n        if (leaderboard.length < MAX_LEADERBOARD) {\\n            leaderboard.push(entry);\\n            _sortLeaderboard();\\n            return;\\n        }\\n\\n        if (score > leaderboard[leaderboard.length - 1].score) {\\n            leaderboard[leaderboard.length - 1] = entry;\\n            _sortLeaderboard();\\n        }\\n    }\\n\\n    function _sortLeaderboard() internal {\\n        uint256 len = leaderboard.length;\\n        for (uint256 i = 1; i < len; i++) {\\n            LeaderboardEntry memory key = leaderboard[i];\\n            uint256 j = i;\\n            while (j > 0 && leaderboard[j - 1].score < key.score) {\\n                leaderboard[j] = leaderboard[j - 1];\\n                j--;\\n            }\\n            leaderboard[j] = key;\\n        }\\n    }\\n\\n    function getLeaderboard() external view returns (LeaderboardEntry[] memory) {\\n        return leaderboard;\\n    }\\n\\n    function getGame(uint256 gameId) external view returns (GameSession memory) {\\n        return games[gameId];\\n    }\\n}\\n\",\"keccak256\":\"0x14e6880c29b5d05bf8888e9ec7b4fe5549b03a7b7533534a80253e7faf24f441\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b506110918061001f6000396000f3fe608060405234801561001057600080fd5b506004361061009e5760003560e01c8063a83d3e8d11610066578063a83d3e8d1461029e578063b135bbb0146102be578063bf368399146102c7578063d70d647d1461030e578063d78ca34f1461032357600080fd5b806302802a64146100a3578063117a5b90146100be5780636d763a6e1461018e5780639c3e21ae146101a3578063a2f77bcc146101b6575b600080fd5b6100ab600a81565b6040519081526020015b60405180910390f35b6101376100cc366004610dd4565b60016020819052600091825260409091208054918101546002909101546001600160a01b03928316928216916001600160401b03600160a01b9091048116919081169063ffffffff600160401b8204811691600160601b81049091169060ff600160801b9091041687565b604080516001600160a01b0398891681529790961660208801526001600160401b039485169587019590955292909116606085015263ffffffff90811660808501521660a0830152151560c082015260e0016100b5565b610196610336565b6040516100b59190610ded565b6100ab6101b1366004610e6a565b6103cf565b6102916101c4366004610dd4565b6040805160e081018252600080825260208201819052918101829052606081018290526080810182905260a0810182905260c081019190915250600090815260016020818152604092839020835160e08101855281546001600160a01b03908116825293820154938416928101929092526001600160401b03600160a01b909304831693820193909352600290920154908116606083015263ffffffff600160401b820481166080840152600160601b82041660a083015260ff600160801b90910416151560c082015290565b6040516100b59190610e9a565b6100ab6102ac366004610e6a565b60026020526000908152604090205481565b6100ab60005481565b6102da6102d5366004610dd4565b61067f565b604080516001600160a01b0395909516855263ffffffff9384166020860152919092169083015260608201526080016100b5565b61032161031c366004610f28565b6106ce565b005b610321610331366004610f5c565b610812565b60606003805480602002602001604051908101604052809291908181526020016000905b828210156103c6576000848152602090819020604080516080810182526002860290920180546001600160a01b038116845263ffffffff600160a01b8204811685870152600160c01b90910416918301919091526001908101546060830152908352909201910161035a565b50505050905090565b336000908152600260205260408120541561043e57336000908152600260208181526040808420548452600190915290912090810154600160801b900460ff161561043c5760028101805470ff0000000000000000ffffffffffffffff1916426001600160401b03161790555b505b600080815461044c90610fa0565b91905081905590506040518060e00160405280336001600160a01b03168152602001836001600160a01b03168152602001426001600160401b0316815260200160006001600160401b03168152602001600063ffffffff168152602001600063ffffffff168152602001600115158152506001600083815260200190815260200160002060008201518160000160006101000a8154816001600160a01b0302191690836001600160a01b0316021790555060208201518160010160006101000a8154816001600160a01b0302191690836001600160a01b0316021790555060408201518160010160146101000a8154816001600160401b0302191690836001600160401b0316021790555060608201518160020160006101000a8154816001600160401b0302191690836001600160401b0316021790555060808201518160020160086101000a81548163ffffffff021916908363ffffffff16021790555060a082015181600201600c6101000a81548163ffffffff021916908363ffffffff16021790555060c08201518160020160106101000a81548160ff0219169083151502179055509050508060026000336001600160a01b03166001600160a01b0316815260200190815260200160002081905550816001600160a01b0316336001600160a01b0316827fc8a592ba83a6dd9d66dc79b8665fff2e22de092f83927cc5d8fa0d726f87e6dc4260405161067291906001600160401b0391909116815260200190565b60405180910390a4919050565b6003818154811061068f57600080fd5b6000918252602090912060029091020180546001909101546001600160a01b038216925063ffffffff600160a01b8304811692600160c01b9004169084565b60008281526001602052604090206002810154600160801b900460ff1661072e5760405162461bcd60e51b815260206004820152600f60248201526e47616d65206e6f742061637469766560881b60448201526064015b60405180910390fd5b80546001600160a01b031633146107775760405162461bcd60e51b815260206004820152600d60248201526c4e6f7420796f75722067616d6560981b6044820152606401610725565b600281018054600160601b900463ffffffff1690600c61079683610fb9565b91906101000a81548163ffffffff021916908363ffffffff16021790555050336001600160a01b0316837f61322e7691706fb4d42e01c12470b688390549b8847c59096196bf0bf0df9c3f8484600201600c9054906101000a900463ffffffff16604051610805929190610fde565b60405180910390a3505050565b60008281526001602052604090206002810154600160801b900460ff1661086d5760405162461bcd60e51b815260206004820152600f60248201526e47616d65206e6f742061637469766560881b6044820152606401610725565b80546001600160a01b031633146108b65760405162461bcd60e51b815260206004820152600d60248201526c4e6f7420796f75722067616d6560981b6044820152606401610725565b60028101805463ffffffff8416600160401b810270ff00000000ffffffffffffffffffffffff199092166001600160401b0342161791909117909155156109a85760018101546000906001600160a01b03166109125733610921565b60018201546001600160a01b03165b905061094384828585600201600c9054906101000a900463ffffffff166109ad565b600182015460028301546040805163ffffffff8088168252600160601b90930490921660208301526001600160a01b0390921691339187917f9421d9103d6d21229c55ed7e3c25cdd9149e6562656f2eb290d60449b21073af910160405180910390a4505b505050565b604080516080810182526001600160a01b038516815263ffffffff808516602083015283169181019190915260608101859052600354600a1115610aae576003805460018101825560009190915281517fc2575a0e9e593c00f959f8c92f12db2869c3395a3b0502d05e2516446f71f85b60029092029182018054602085015160408601516001600160a01b039094166001600160c01b031990921691909117600160a01b63ffffffff928316021763ffffffff60c01b1916600160c01b919093160291909117905560608201517fc2575a0e9e593c00f959f8c92f12db2869c3395a3b0502d05e2516446f71f85c90910155610aa8610b99565b50610b93565b60038054610abe90600190611015565b81548110610ace57610ace61102e565b600091825260209091206002909102015463ffffffff600160a01b90910481169084161115610b915760038054829190610b0a90600190611015565b81548110610b1a57610b1a61102e565b600091825260209182902083516002929092020180549284015160408501516001600160a01b039093166001600160c01b031990941693909317600160a01b63ffffffff948516021763ffffffff60c01b1916600160c01b9390921692909202178155606090910151600190910155610b91610b99565b505b50505050565b60035460015b81811015610dd057600060038281548110610bbc57610bbc61102e565b600091825260209182902060408051608081018252600290930290910180546001600160a01b038116845263ffffffff600160a01b8204811695850195909552600160c01b90049093169082015260019091015460608201529050815b600081118015610c6c5750602082015163ffffffff166003610c3c600184611015565b81548110610c4c57610c4c61102e565b6000918252602090912060029091020154600160a01b900463ffffffff16105b15610d40576003610c7e600183611015565b81548110610c8e57610c8e61102e565b906000526020600020906002020160038281548110610caf57610caf61102e565b60009182526020909120825460029092020180546001600160a01b039092166001600160a01b031983168117825583546001600160c01b031990931617600160a01b9283900463ffffffff90811690930217808255835463ffffffff60c01b19909116600160c01b918290049093160291909117815560019182015491015580610d3881611044565b915050610c19565b8160038281548110610d5457610d5461102e565b600091825260209182902083516002929092020180549284015160408501516001600160a01b039093166001600160c01b031990941693909317600160a01b63ffffffff948516021763ffffffff60c01b1916600160c01b9390921692909202178155606090910151600191820155929092019150610b9f9050565b5050565b600060208284031215610de657600080fd5b5035919050565b602080825282518282018190526000918401906040840190835b81811015610e5f57835160018060a01b03815116845263ffffffff602082015116602085015263ffffffff60408201511660408501526060810151606085015250608083019250602084019350600181019050610e07565b509095945050505050565b600060208284031215610e7c57600080fd5b81356001600160a01b0381168114610e9357600080fd5b9392505050565b600060e08201905060018060a01b03835116825260018060a01b0360208401511660208301526001600160401b0360408401511660408301526001600160401b03606084015116606083015263ffffffff608084015116608083015260a0830151610f0d60a084018263ffffffff169052565b5060c0830151610f2160c084018215159052565b5092915050565b60008060408385031215610f3b57600080fd5b82359150602083013560048110610f5157600080fd5b809150509250929050565b60008060408385031215610f6f57600080fd5b82359150602083013563ffffffff81168114610f5157600080fd5b634e487b7160e01b600052601160045260246000fd5b600060018201610fb257610fb2610f8a565b5060010190565b600063ffffffff821663ffffffff8103610fd557610fd5610f8a565b60010192915050565b604081016004841061100057634e487b7160e01b600052602160045260246000fd5b92815263ffffffff9190911660209091015290565b8181038181111561102857611028610f8a565b92915050565b634e487b7160e01b600052603260045260246000fd5b60008161105357611053610f8a565b50600019019056fea26469706673582212205d5c3c29d839b1ec323cf554c10c6398a2a83f9c65c99e8511b6065f0f22db5564736f6c634300081e0033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b506004361061009e5760003560e01c8063a83d3e8d11610066578063a83d3e8d1461029e578063b135bbb0146102be578063bf368399146102c7578063d70d647d1461030e578063d78ca34f1461032357600080fd5b806302802a64146100a3578063117a5b90146100be5780636d763a6e1461018e5780639c3e21ae146101a3578063a2f77bcc146101b6575b600080fd5b6100ab600a81565b6040519081526020015b60405180910390f35b6101376100cc366004610dd4565b60016020819052600091825260409091208054918101546002909101546001600160a01b03928316928216916001600160401b03600160a01b9091048116919081169063ffffffff600160401b8204811691600160601b81049091169060ff600160801b9091041687565b604080516001600160a01b0398891681529790961660208801526001600160401b039485169587019590955292909116606085015263ffffffff90811660808501521660a0830152151560c082015260e0016100b5565b610196610336565b6040516100b59190610ded565b6100ab6101b1366004610e6a565b6103cf565b6102916101c4366004610dd4565b6040805160e081018252600080825260208201819052918101829052606081018290526080810182905260a0810182905260c081019190915250600090815260016020818152604092839020835160e08101855281546001600160a01b03908116825293820154938416928101929092526001600160401b03600160a01b909304831693820193909352600290920154908116606083015263ffffffff600160401b820481166080840152600160601b82041660a083015260ff600160801b90910416151560c082015290565b6040516100b59190610e9a565b6100ab6102ac366004610e6a565b60026020526000908152604090205481565b6100ab60005481565b6102da6102d5366004610dd4565b61067f565b604080516001600160a01b0395909516855263ffffffff9384166020860152919092169083015260608201526080016100b5565b61032161031c366004610f28565b6106ce565b005b610321610331366004610f5c565b610812565b60606003805480602002602001604051908101604052809291908181526020016000905b828210156103c6576000848152602090819020604080516080810182526002860290920180546001600160a01b038116845263ffffffff600160a01b8204811685870152600160c01b90910416918301919091526001908101546060830152908352909201910161035a565b50505050905090565b336000908152600260205260408120541561043e57336000908152600260208181526040808420548452600190915290912090810154600160801b900460ff161561043c5760028101805470ff0000000000000000ffffffffffffffff1916426001600160401b03161790555b505b600080815461044c90610fa0565b91905081905590506040518060e00160405280336001600160a01b03168152602001836001600160a01b03168152602001426001600160401b0316815260200160006001600160401b03168152602001600063ffffffff168152602001600063ffffffff168152602001600115158152506001600083815260200190815260200160002060008201518160000160006101000a8154816001600160a01b0302191690836001600160a01b0316021790555060208201518160010160006101000a8154816001600160a01b0302191690836001600160a01b0316021790555060408201518160010160146101000a8154816001600160401b0302191690836001600160401b0316021790555060608201518160020160006101000a8154816001600160401b0302191690836001600160401b0316021790555060808201518160020160086101000a81548163ffffffff021916908363ffffffff16021790555060a082015181600201600c6101000a81548163ffffffff021916908363ffffffff16021790555060c08201518160020160106101000a81548160ff0219169083151502179055509050508060026000336001600160a01b03166001600160a01b0316815260200190815260200160002081905550816001600160a01b0316336001600160a01b0316827fc8a592ba83a6dd9d66dc79b8665fff2e22de092f83927cc5d8fa0d726f87e6dc4260405161067291906001600160401b0391909116815260200190565b60405180910390a4919050565b6003818154811061068f57600080fd5b6000918252602090912060029091020180546001909101546001600160a01b038216925063ffffffff600160a01b8304811692600160c01b9004169084565b60008281526001602052604090206002810154600160801b900460ff1661072e5760405162461bcd60e51b815260206004820152600f60248201526e47616d65206e6f742061637469766560881b60448201526064015b60405180910390fd5b80546001600160a01b031633146107775760405162461bcd60e51b815260206004820152600d60248201526c4e6f7420796f75722067616d6560981b6044820152606401610725565b600281018054600160601b900463ffffffff1690600c61079683610fb9565b91906101000a81548163ffffffff021916908363ffffffff16021790555050336001600160a01b0316837f61322e7691706fb4d42e01c12470b688390549b8847c59096196bf0bf0df9c3f8484600201600c9054906101000a900463ffffffff16604051610805929190610fde565b60405180910390a3505050565b60008281526001602052604090206002810154600160801b900460ff1661086d5760405162461bcd60e51b815260206004820152600f60248201526e47616d65206e6f742061637469766560881b6044820152606401610725565b80546001600160a01b031633146108b65760405162461bcd60e51b815260206004820152600d60248201526c4e6f7420796f75722067616d6560981b6044820152606401610725565b60028101805463ffffffff8416600160401b810270ff00000000ffffffffffffffffffffffff199092166001600160401b0342161791909117909155156109a85760018101546000906001600160a01b03166109125733610921565b60018201546001600160a01b03165b905061094384828585600201600c9054906101000a900463ffffffff166109ad565b600182015460028301546040805163ffffffff8088168252600160601b90930490921660208301526001600160a01b0390921691339187917f9421d9103d6d21229c55ed7e3c25cdd9149e6562656f2eb290d60449b21073af910160405180910390a4505b505050565b604080516080810182526001600160a01b038516815263ffffffff808516602083015283169181019190915260608101859052600354600a1115610aae576003805460018101825560009190915281517fc2575a0e9e593c00f959f8c92f12db2869c3395a3b0502d05e2516446f71f85b60029092029182018054602085015160408601516001600160a01b039094166001600160c01b031990921691909117600160a01b63ffffffff928316021763ffffffff60c01b1916600160c01b919093160291909117905560608201517fc2575a0e9e593c00f959f8c92f12db2869c3395a3b0502d05e2516446f71f85c90910155610aa8610b99565b50610b93565b60038054610abe90600190611015565b81548110610ace57610ace61102e565b600091825260209091206002909102015463ffffffff600160a01b90910481169084161115610b915760038054829190610b0a90600190611015565b81548110610b1a57610b1a61102e565b600091825260209182902083516002929092020180549284015160408501516001600160a01b039093166001600160c01b031990941693909317600160a01b63ffffffff948516021763ffffffff60c01b1916600160c01b9390921692909202178155606090910151600190910155610b91610b99565b505b50505050565b60035460015b81811015610dd057600060038281548110610bbc57610bbc61102e565b600091825260209182902060408051608081018252600290930290910180546001600160a01b038116845263ffffffff600160a01b8204811695850195909552600160c01b90049093169082015260019091015460608201529050815b600081118015610c6c5750602082015163ffffffff166003610c3c600184611015565b81548110610c4c57610c4c61102e565b6000918252602090912060029091020154600160a01b900463ffffffff16105b15610d40576003610c7e600183611015565b81548110610c8e57610c8e61102e565b906000526020600020906002020160038281548110610caf57610caf61102e565b60009182526020909120825460029092020180546001600160a01b039092166001600160a01b031983168117825583546001600160c01b031990931617600160a01b9283900463ffffffff90811690930217808255835463ffffffff60c01b19909116600160c01b918290049093160291909117815560019182015491015580610d3881611044565b915050610c19565b8160038281548110610d5457610d5461102e565b600091825260209182902083516002929092020180549284015160408501516001600160a01b039093166001600160c01b031990941693909317600160a01b63ffffffff948516021763ffffffff60c01b1916600160c01b9390921692909202178155606090910151600191820155929092019150610b9f9050565b5050565b600060208284031215610de657600080fd5b5035919050565b602080825282518282018190526000918401906040840190835b81811015610e5f57835160018060a01b03815116845263ffffffff602082015116602085015263ffffffff60408201511660408501526060810151606085015250608083019250602084019350600181019050610e07565b509095945050505050565b600060208284031215610e7c57600080fd5b81356001600160a01b0381168114610e9357600080fd5b9392505050565b600060e08201905060018060a01b03835116825260018060a01b0360208401511660208301526001600160401b0360408401511660408301526001600160401b03606084015116606083015263ffffffff608084015116608083015260a0830151610f0d60a084018263ffffffff169052565b5060c0830151610f2160c084018215159052565b5092915050565b60008060408385031215610f3b57600080fd5b82359150602083013560048110610f5157600080fd5b809150509250929050565b60008060408385031215610f6f57600080fd5b82359150602083013563ffffffff81168114610f5157600080fd5b634e487b7160e01b600052601160045260246000fd5b600060018201610fb257610fb2610f8a565b5060010190565b600063ffffffff821663ffffffff8103610fd557610fd5610f8a565b60010192915050565b604081016004841061100057634e487b7160e01b600052602160045260246000fd5b92815263ffffffff9190911660209091015290565b8181038181111561102857611028610f8a565b92915050565b634e487b7160e01b600052603260045260246000fd5b60008161105357611053610f8a565b50600019019056fea26469706673582212205d5c3c29d839b1ec323cf554c10c6398a2a83f9c65c99e8511b6065f0f22db5564736f6c634300081e0033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 32,
+        "contract": "contracts/SnakeGame.sol:SnakeGame",
+        "label": "nextGameId",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 37,
+        "contract": "contracts/SnakeGame.sol:SnakeGame",
+        "label": "games",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_mapping(t_uint256,t_struct(GameSession)21_storage)"
+      },
+      {
+        "astId": 41,
+        "contract": "contracts/SnakeGame.sol:SnakeGame",
+        "label": "activeGame",
+        "offset": 0,
+        "slot": "2",
+        "type": "t_mapping(t_address,t_uint256)"
+      },
+      {
+        "astId": 48,
+        "contract": "contracts/SnakeGame.sol:SnakeGame",
+        "label": "leaderboard",
+        "offset": 0,
+        "slot": "3",
+        "type": "t_array(t_struct(LeaderboardEntry)30_storage)dyn_storage"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_array(t_struct(LeaderboardEntry)30_storage)dyn_storage": {
+        "base": "t_struct(LeaderboardEntry)30_storage",
+        "encoding": "dynamic_array",
+        "label": "struct SnakeGame.LeaderboardEntry[]",
+        "numberOfBytes": "32"
+      },
+      "t_bool": {
+        "encoding": "inplace",
+        "label": "bool",
+        "numberOfBytes": "1"
+      },
+      "t_mapping(t_address,t_uint256)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => uint256)",
+        "numberOfBytes": "32",
+        "value": "t_uint256"
+      },
+      "t_mapping(t_uint256,t_struct(GameSession)21_storage)": {
+        "encoding": "mapping",
+        "key": "t_uint256",
+        "label": "mapping(uint256 => struct SnakeGame.GameSession)",
+        "numberOfBytes": "32",
+        "value": "t_struct(GameSession)21_storage"
+      },
+      "t_struct(GameSession)21_storage": {
+        "encoding": "inplace",
+        "label": "struct SnakeGame.GameSession",
+        "members": [
+          {
+            "astId": 8,
+            "contract": "contracts/SnakeGame.sol:SnakeGame",
+            "label": "player",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_address"
+          },
+          {
+            "astId": 10,
+            "contract": "contracts/SnakeGame.sol:SnakeGame",
+            "label": "mainWallet",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_address"
+          },
+          {
+            "astId": 12,
+            "contract": "contracts/SnakeGame.sol:SnakeGame",
+            "label": "startTime",
+            "offset": 20,
+            "slot": "1",
+            "type": "t_uint64"
+          },
+          {
+            "astId": 14,
+            "contract": "contracts/SnakeGame.sol:SnakeGame",
+            "label": "endTime",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_uint64"
+          },
+          {
+            "astId": 16,
+            "contract": "contracts/SnakeGame.sol:SnakeGame",
+            "label": "score",
+            "offset": 8,
+            "slot": "2",
+            "type": "t_uint32"
+          },
+          {
+            "astId": 18,
+            "contract": "contracts/SnakeGame.sol:SnakeGame",
+            "label": "moveCount",
+            "offset": 12,
+            "slot": "2",
+            "type": "t_uint32"
+          },
+          {
+            "astId": 20,
+            "contract": "contracts/SnakeGame.sol:SnakeGame",
+            "label": "isActive",
+            "offset": 16,
+            "slot": "2",
+            "type": "t_bool"
+          }
+        ],
+        "numberOfBytes": "96"
+      },
+      "t_struct(LeaderboardEntry)30_storage": {
+        "encoding": "inplace",
+        "label": "struct SnakeGame.LeaderboardEntry",
+        "members": [
+          {
+            "astId": 23,
+            "contract": "contracts/SnakeGame.sol:SnakeGame",
+            "label": "player",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_address"
+          },
+          {
+            "astId": 25,
+            "contract": "contracts/SnakeGame.sol:SnakeGame",
+            "label": "score",
+            "offset": 20,
+            "slot": "0",
+            "type": "t_uint32"
+          },
+          {
+            "astId": 27,
+            "contract": "contracts/SnakeGame.sol:SnakeGame",
+            "label": "moveCount",
+            "offset": 24,
+            "slot": "0",
+            "type": "t_uint32"
+          },
+          {
+            "astId": 29,
+            "contract": "contracts/SnakeGame.sol:SnakeGame",
+            "label": "gameId",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_uint256"
+          }
+        ],
+        "numberOfBytes": "64"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      },
+      "t_uint32": {
+        "encoding": "inplace",
+        "label": "uint32",
+        "numberOfBytes": "4"
+      },
+      "t_uint64": {
+        "encoding": "inplace",
+        "label": "uint64",
+        "numberOfBytes": "8"
+      }
+    }
+  }
+}
